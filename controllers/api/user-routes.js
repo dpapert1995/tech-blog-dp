@@ -3,6 +3,8 @@
 const router = require('express').Router();
 // User, Post, Vote models
 const { User, Post, Comment } = require('../../models');
+// Authorization Helper
+const authorize = require('../../utils/authorization');
 
 // Routes
 // Get all users
@@ -89,7 +91,7 @@ router.post('/login', (req, res) => {
 });
 
 // Log out an existing user
-router.post('/logout', (req, res) => {
+router.post('/logout', authorize, (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
@@ -100,7 +102,7 @@ router.post('/logout', (req, res) => {
 })
 
 // Update an existing user
-router.put('/:id', (req, res) => {
+router.put('/:id', authorize, (req, res) => {
     User.update(req.body, {
         individualHooks: true,
         where: {
@@ -121,7 +123,7 @@ router.put('/:id', (req, res) => {
   })
 
 // Delete an existing user
-router.delete('/:id', (req, res) => {
+router.delete('/:id', authorize, (req, res) => {
     User.destroy({
       where: {
         id: req.params.id

@@ -10,11 +10,13 @@ const express = require('express');
 const routes = require('./controllers/');
 // Requires sequelize to connect to the database
 const sequelize = require('./config/connection');
+// Handlebars helpers
+const helpers = require('./utils/helpers');
 
 // Handlebars template engine for front-end
 const expressHandlebars = require('express-handlebars')
 // Initialize handlebars for the html templates
-const exphbs = expressHandlebars.create({});
+const exphbs = expressHandlebars.create({helpers});
 
 // Initialize the server
 const app = express();
