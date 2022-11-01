@@ -1,0 +1,231 @@
+/* BEGIN STYLES */
+
+/* Beging general styles */
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Root styles are all color variables */
+  :root {
+    --primaryColor: rgb(78, 78, 94);
+    --secondaryColor: #1d5aa5;
+    --secondaryColorHover: #1e83ff;
+    --tertiaryColor: rgb(201, 192, 192);
+    --whiteColor: white;
+    --greenColor: #16690e;
+    --greenColorHover: #2ac51c;
+    --redColor: #ac1717;
+    --redColorHover: #ff3131;
+  }
+
+  body, html {
+    color: var(--primaryColor);
+    font-family: sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  a {
+    color: var(--secondaryColor);
+    font-weight: bold;
+    text-decoration: none;
+    transition: color .3s;
+  }
+  
+  a:hover {
+    color: var(--secondaryColorHover);
+  }
+
+  form > div {
+    margin-bottom: 2%;
+  }
+  
+  form label {
+    display: block;
+  }
+
+  header {
+    align-items: center;
+    background-color: var(--primaryColor);
+    border-bottom: 1px solid var(--tertiaryColor);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1%;
+  }
+  
+  header h1 {
+    background-color: var(--tertiaryColor);
+    border: 2px outset var(--primaryColor);
+    border-radius: 5px;
+    font-size: 1em;
+    padding: 1.25rem;
+  }
+  
+  main {
+    flex: 1;
+    padding: 2% 4%;
+  }
+
+  nav {
+      padding: 1.2rem;
+      text-align: right;
+      white-space: pre;
+  }
+
+  textarea {
+    min-height: 100px;
+    min-width: 40%;
+  }
+
+  textarea, input {
+    padding: .5%;
+    border-radius: 5px;
+    border: 1px solid var(--tertiaryColor);
+  }
+  
+  textarea:focus, input:focus {
+    outline: none;
+    border: 1px solid var(--secondaryColorHover);
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 1200px;
+    min-height: 100%;
+    width: 100%;
+  }
+
+  /* End General Styles*/
+  
+  /* Begin Button Styles */
+  button {
+    background-color: var(--secondaryColor);
+    border: 0;
+    border-radius: 5px;
+    color: var(--whiteColor);
+    cursor: pointer;
+    font-weight: bold;
+    padding: 1%;
+    transition: background-color .3s;
+  }
+  
+  button:hover {
+    background-color: var(--primaryColor);
+  }
+
+  .btn-no-style {
+    background: none;
+    border: none;
+    color: var(--secondaryColor);
+    cursor: pointer;
+    font-size: 100%;
+    font-weight: bold;
+    margin-left: 16px;
+    padding: 0;
+    text-decoration: none;
+    transition: color .1s;
+  }
+  
+  .btn-no-style:hover {
+    background: none;
+    color: var(--secondaryColorHover);
+  }
+  
+  .delete-post-btn {
+    background-color: var(--redColor);
+  }
+  
+  .delete-post-btn:hover {
+    background-color: var(--redColorHover);
+  }
+
+  .upvote-btn {
+    background-color: var(--greenColor);
+    transition: background-color .3s;
+  }
+  
+  .upvote-btn:hover {
+    background-color: var(--greenColorHover);
+  }
+  /* End Button Styles */
+  
+  /* Begin post styles */
+  .post-list {
+    list-style-type:none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .post {
+    line-height: 150%;
+    margin-bottom: 2%;
+  }
+  
+  .post .title {
+    color: var(--primaryColor);
+    font-style: italic;
+    font-size: 1.25rem;
+  }
+
+  .post .title span {
+    color: var(--primaryColor);
+    font-style: italic;
+    font-size: 0.8rem;
+  }
+ /* End post styles */
+  
+ /* Begin comment styles */
+  .comment-form {
+    margin-bottom: 5%;
+  }
+  
+  .comment {
+    padding: 1%;
+    margin-bottom: 1%;
+  }
+  
+  .comment:nth-child(odd) {
+    background-color: var(--color);
+  }
+  
+  .comment .meta {
+    font-size: 90%;
+    margin-bottom: .5%;
+    opacity: .6;
+  }
+  /* End comment styles */
+  
+  /* Begin miscellaneous styles */
+  .column {
+    flex: 50%;
+    padding: 1.25rem;
+}
+
+  .edit-link {
+    display: block;
+    margin: -1.5% 0 2% 0;
+  }
+  
+  .edit-post-form {
+    margin-bottom: 5%;
+  }
+  
+  footer {
+    border-top: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    padding: 1%;
+    font-size: 110%;
+  }
+
+  .new-post-form input, textarea {
+    width: 80%;
+  }
+
+  .row {
+    display: flex;
+}
+/* End miscellaneous */
