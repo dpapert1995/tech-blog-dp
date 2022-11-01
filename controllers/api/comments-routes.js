@@ -8,11 +8,8 @@ const { Comment } = require('../../models');
 
 // Get comments
 router.get('/', (req, res) => {
-    // Access the Comment model and run .findAll() method to get all comments
     Comment.findAll()
-      // return the data as JSON formatted
-      .then(dbCommentData => res.json(dbCommentData))
-      // if there is a server error, return that error
+      .then(commentData => res.json(commentData))
       .catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -21,13 +18,12 @@ router.get('/', (req, res) => {
 
 // Post a new comment
 router.post('/', (req, res) => {
-  // check the session, and if it exists, create a comment
     Comment.create({
       comment_text: req.body.comment_text,
       post_id: req.body.post_id,
       user_id: req.user_id
     })
-      .then(dbCommentData => res.json(dbCommentData))
+      .then(commentData => res.json(commentData))
       .catch(err => {
         console.log(err);
         res.status(400).json(err);
@@ -41,12 +37,12 @@ router.delete('/:id', (req, res) => {
           id: req.params.id
         }
       })
-        .then(dbCommentData => {
-          if (!dbCommentData) {
-            res.status(404).json({ message: 'No comment found with this id' });
+        .then(commentData => {
+          if (!commentData) {
+            res.status(404).json({ message: 'No comment found with an id of ' + id });
             return;
           }
-          res.json(dbCommentData);
+          res.json(commentData);
         })
         .catch(err => {
           console.log(err);
