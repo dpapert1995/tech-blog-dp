@@ -188,7 +188,7 @@
   }
   
   .comment:nth-child(odd) {
-    background-color: var(--color);
+    background-color: var(--whiteColor);
   }
   
   .comment .meta {
@@ -214,7 +214,7 @@
   }
   
   footer {
-    border-top: 1px solid #ccc;
+    border-top: 1px solid var(--tertiaryColor);
     display: flex;
     justify-content: center;
     padding: 1%;
