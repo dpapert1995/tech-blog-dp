@@ -18,20 +18,28 @@ const expressHandlebars = require('express-handlebars')
 // Initialize handlebars for the html templates
 const exphbs = expressHandlebars.create({helpers});
 
-// Initialize sessions
-const sess = {
-  secret: process.env.DB_SESSION_SECRET,
-  cookie: { maxAge: 3600000 },
-  resave: false,
-  saveUninitialized: true,
-  store: new SequelizeStore({
-    db: sequelize
-  })
-};
+const session = require('express-session');
 
 // Initialize the server
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
+// Initialize sessions
+const sess = {
+  secret: 'bigbluedog',
+  cookie: {
+        // Session will automatically expire in 10 minutes
+        expires: 10 * 60 * 1000
+  },
+  resave: true,
+  rolling: true,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  }),
+};
 
 // Give the server a path to the public directory for static files
 app.use(express.static(path.join(__dirname, 'public')));

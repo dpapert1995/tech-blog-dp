@@ -29,7 +29,7 @@ router.get('/:id', (req, res) => {
       include: [
         {
           model: Post,
-          attributes: ['id', 'title', 'postText', 'created_at']
+          attributes: ['id', 'title', 'postContent', 'created_at']
         },
         {
             model: Comment,
@@ -71,6 +71,7 @@ router.post('/', (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
+});
 });
 
 // Login route

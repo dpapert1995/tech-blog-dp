@@ -1,33 +1,6 @@
-<article class="post">
-    <div class="title">
-    {{post.title}}<span style="float:right">Posted by {{post.user.username}} on {{post.created_at}}</span><br>
-    </div>
-    <div class = "content">
-        <p>{{post.post_text}}</p>
-    </div>
-</article>
-
-<form class="comment-form">
-  <div>
-    <textarea name="comment-body"></textarea>
-  </div>
-
-  <div>
-    <button type="submit">Add a comment</button>
-  </div>
-</form>
-
-<div class="comments">
-  {{#each post.comments}}
-  <section class="comment">
-    <div class="meta">
-      {{user.username}} on {{created_at}}
-    </div>
-    <div class="text">
-      {{comment_text}}
-    </div>
-  </section>
-  {{/each}}
+{{#each posts as |post|}}
+{{> post-info post }}
 </div>
-
-<script src="/javascript/comment.js"></script>
+{{else}}
+<h6 class="pb-4 has-text-centered is-italic">No posts to show.</h6>
+{{/each}}
