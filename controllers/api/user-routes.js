@@ -3,8 +3,12 @@
 const router = require('express').Router();
 // User, Post, Vote models
 const { User, Post, Comment } = require('../../models');
+// Express Session for the session data
+const session = require('express-session');
 // Authorization Helper
 const authorize = require('../../utils/authorization');
+// Sequelize store to save the session so the user can remain logged in
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 // Routes
 // Get all users
@@ -85,9 +89,10 @@ router.post('/login', (req, res) => {
         res.status(400).json({ message: 'Email address not found' });
         return;
         }
-        const validPassword = userData.checkPassword(req.body.password);
+        const validPassword = userData.checkPassword(req.body.password.toString());
+        console.log(validPassword);
         if (!validPassword) {
-            res.status(400).json({ message: 'Incorrect password!' });
+            res.status(400).json({ message: 'Incorrect password!!' });
             return;
         }
         req.session.save(() => {

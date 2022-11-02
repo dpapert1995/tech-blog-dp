@@ -20,6 +20,7 @@ router.get('/', (req, res) => {
 
 // Post a new comment
 router.post('/', authorize, (req, res) => {
+  if (req.session) {
     Comment.create({
       commentText: req.body.commentText,
       postId: req.body.postId,
@@ -30,6 +31,7 @@ router.post('/', authorize, (req, res) => {
         console.log(err);
         res.status(400).json(err);
       });
+    }
 });
 
 // Delete a comment
