@@ -64,7 +64,7 @@ router.post('/', (req, res) => {
     .then(userData => {
       req.session.save(() => {
         req.session.userId = userData.id;
-        req.session.userName = dbUserData.userName;
+        req.session.userName = userData.userName;
         req.session.loggedIn = true;
     })
     .catch(err => {
@@ -90,8 +90,13 @@ router.post('/login', (req, res) => {
             res.status(400).json({ message: 'Incorrect password!' });
             return;
         }
+        req.session.save(() => {
+          req.session.userId = userData.id;
+          req.session.username = userData.username;
+          req.session.loggedIn = true;
           res.json({ user: userData, message: 'Log in sucessful!' });
     });  
+});
 });
 
 // Log out an existing user

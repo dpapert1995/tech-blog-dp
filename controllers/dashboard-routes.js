@@ -12,7 +12,7 @@ const authorize = require('../utils/authorization')
 router.get('/', authorize, (req, res) => {
     Post.findAll({
       where: {
-        user_id: req.session.user_id
+        userId: req.session.userId
       },
       attributes: [
         'id',
