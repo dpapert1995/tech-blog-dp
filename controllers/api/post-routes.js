@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
     Post.findAll({
         attributes: [
             'id',
-            'post_text',
+            'postText',
             'title',
             'created_at',
           ],
@@ -27,7 +27,7 @@ router.get('/', (req, res) => {
             },
             {
                 model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                attributes: ['id', 'commentText', 'postId', 'userId', 'created_at'],
                 include: {
                     model: User,
                     attributes: ['username']
@@ -50,7 +50,7 @@ router.get('/:id', (req, res) => {
       },
       attributes: [
         'id',
-        'post_text',
+        'postText',
         'title',
         'created_at',
       ],
@@ -61,7 +61,7 @@ router.get('/:id', (req, res) => {
         },
         {
             model: Comment,
-            attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+            attributes: ['id', 'commentText', 'postId', 'userId', 'created_at'],
             include: {
                 model: User,
                 attributes: ['username']
@@ -86,8 +86,8 @@ router.get('/:id', (req, res) => {
 router.post('/', authorize, (req, res) => {
     Post.create({
         title: req.body.title,
-        post_text: req.body.post_text,
-        user_id: req.user_id
+        postText: req.body.postText,
+        userId: req.userId
     })
     .then(postData => res.json(postData))
     .catch(err => {

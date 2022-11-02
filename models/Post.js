@@ -21,8 +21,8 @@ Post.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        // post_content
-        post_content: {
+        // post content
+        postContent: {
             type: DataTypes.TEXT,
             allowNull: false,
             validate: {
@@ -30,8 +30,8 @@ Post.init(
                 len: [1]
             }
         },
-        // user_id
-        user_id: {
+        // user id
+        userId: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'user',

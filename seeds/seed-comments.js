@@ -3,33 +3,33 @@ const { Comment } = require('../models');
 const commentData = [
     {
         comment_text: "What does this stand for, Cascading Style Sheets?",
-        post_id: 1,
-        user_id: 4
+        postId: 1,
+        userId: 4
     },
   {
     comment_text: "Nice! I am getting into web development. This is helpful!",
-    post_id: 3,
-    user_id: 1
+    postId: 3,
+    userId: 1
   },
   {
     comment_text: "Sequel? Like Star Wars sequels?",
-    post_id: 4,
-    user_id: 2
+    postId: 4,
+    userId: 2
   },
   {
     comment_text: "Luke, I am your father.",
-    post_id: 4,
-    user_id: 3
+    postId: 4,
+    userId: 3
   },
   {
     comment_text: "Does anyone know who Node is?",
-    post_id: 5,
-    user_id: 5
+    postId: 5,
+    userId: 5
   },
   {
     comment_text: "Nobody does. He is a mystery.",
-    post_id: 5,
-    user_id: 4
+    postId: 5,
+    userId: 4
   },
 ];
 
