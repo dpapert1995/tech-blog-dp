@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
     Post.findAll({
         attributes: [
             'id',
-            'post_text',
+            'postText',
             'title',
             'created_at',
           ],
@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
             },
             {
                 model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                attributes: ['id', 'commentText', 'postId', 'userId', 'created_at'],
                 include: {
                     model: User,
                     attributes: ['username']
@@ -51,7 +51,7 @@ router.get('/post/:id', (req, res) => {
       },
       attributes: [
         'id',
-        'post_text',
+        'postText',
         'title',
         'created_at',
       ],
@@ -62,7 +62,7 @@ router.get('/post/:id', (req, res) => {
         },
         {
             model: Comment,
-            attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+            attributes: ['id', 'commentText', 'postId', 'userId', 'created_at'],
             include: {
                 model: User,
                 attributes: ['username']
@@ -88,5 +88,14 @@ router.get('/post/:id', (req, res) => {
 router.get('/login', (req, res) => {
     res.render('login');
   });
+
+// Get sign up page
+router.get('/signup', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+  res.render('signup');
+});
 
 module.exports = router;

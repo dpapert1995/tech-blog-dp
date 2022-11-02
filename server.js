@@ -18,6 +18,17 @@ const expressHandlebars = require('express-handlebars')
 // Initialize handlebars for the html templates
 const exphbs = expressHandlebars.create({helpers});
 
+// Initialize sessions
+const sess = {
+  secret: process.env.DB_SESSION_SECRET,
+  cookie: { maxAge: 3600000 },
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+};
+
 // Initialize the server
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -32,6 +43,9 @@ app.set('view engine', 'handlebars');
 // Use express to part JSON and strings
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Tell the app to use Express Session for the session handling
+app.use(session(sess));
 
 // Give the server the path to the routes
 app.use(routes);
