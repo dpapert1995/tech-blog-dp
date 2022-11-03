@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -15,38 +16,27 @@
         <a href="/">MVC Tech Blog</a>
       </h1>
         <nav>
+          <span><a href="/">home</a></span> 
           {{#if loggedIn}}
-          <a href="/" class="navbar-item is-hoverable pt-1">homepage</a>
-            <a href="/dashboard" class="navbar-item is-hoverable pt-1">dashboard</a>
-            <a href="/dashboard/create/" class="navbar-item is-hoverable pt-1 mr-4">create post</a>
-            <button id="logout" class="button is-danger">logout</button>
-            {{else}}
-            <a href="/" class="navbar-item is-hoverable pt-1">homepage</a>
-            <a href="/login" class="button is-primary">login</a>
-            {{/if}}
+          <a href="/dashboard">dashboard</a>
+          <button id="logout" class="btn-no-style">logout</button>
+          {{else}}
+          <a href="/login">login</a>
+          {{/if}}
         </nav>
     </header>
     <main>
       {{{ body }}}
     </main>
-    <footer class="footer rows pb-2">
-        <div class="row-is-full content has-text-centered">
-            <p>
-            <a href="/">homepage</a>{{#if loggedIn}} | 
-            <a href="/dashboard/">dashboard</a> | 
-            <a href="/dashboard/create/">create new post</a>
-            {{else}}
-             | <a href="/login/">login</a>
-            {{/if}}
-            </p>
-        </div>
-      <div class="row-is-full content has-text-centered">
-  </div>
+    <footer>
+      Thanks for visiting!
     </footer>
   </div>
 
   {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
   {{/if}}
+
 </body>
+
 </html>

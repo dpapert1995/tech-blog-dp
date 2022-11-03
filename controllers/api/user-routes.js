@@ -68,10 +68,11 @@ router.post('/', (req, res) => {
     .then(userData => {
       req.session.save(() => {
         req.session.userId = userData.id;
-        req.session.userName = userData.userName;
+        req.session.username = userData.username;
         req.session.loggedIn = true;
     })
     .catch(err => {
+      console.log(test);
       console.log(err);
       res.status(500).json(err);
     });
@@ -89,7 +90,7 @@ router.post('/login', (req, res) => {
         res.status(400).json({ message: 'Email address not found' });
         return;
         }
-        const validPassword = userData.checkPassword(req.body.password.toString());
+        const validPassword = userData.checkPassword(req.body.password);
         console.log(validPassword);
         if (!validPassword) {
             res.status(400).json({ message: 'Incorrect password!!' });
