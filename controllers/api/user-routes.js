@@ -70,14 +70,16 @@ router.post('/', (req, res) => {
         req.session.userId = userData.id;
         req.session.username = userData.username;
         req.session.loggedIn = true;
+
+        res.json(userData);
     })
+  })
     .catch(err => {
-      console.log(test);
       console.log(err);
       res.status(500).json(err);
     });
 });
-});
+
 
 // Login route
 router.post('/login', (req, res) => {

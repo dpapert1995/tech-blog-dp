@@ -14,7 +14,7 @@ async function signupFormHandler(event) {
                 password
             }),
             headers: {'Content-Type': 'application/json'}
-        });
+    });
         if (response.ok) {
             alert('Account created! Click okay to log in.');
             document.location.replace('/dashboard');
