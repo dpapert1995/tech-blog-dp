@@ -7,7 +7,7 @@
   
   /* Root styles are all color variables */
   :root {
-    --primaryColor: rgb(78, 78, 94);
+    --primaryColor: rgb(114, 114, 126);
     --secondaryColor: #1d5aa5;
     --secondaryColorHover: #1e83ff;
     --tertiaryColor: rgb(201, 192, 192);

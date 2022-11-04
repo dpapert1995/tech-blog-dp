@@ -1,14 +1,17 @@
+<!-- Main Page Handlebars-->
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
 
+<!--Site Header-->
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MVC Tech Blog</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/styles.css">
 </head>
 
+<!--Body-->
 <body>
   <div class="wrapper">
     <header>
@@ -33,10 +36,9 @@
     </footer>
   </div>
 
+<!--Javascript file-->
   {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
   {{/if}}
-
 </body>
-
 </html>
